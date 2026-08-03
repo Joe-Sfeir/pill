@@ -1,0 +1,6 @@
+import "@testing-library/jest-dom/vitest";
+import {afterEach} from "vitest";
+import {cleanup} from "@testing-library/react";
+afterEach(()=>cleanup());
+const memory=new Map<string,string>();
+Object.defineProperty(globalThis,"localStorage",{value:{getItem:(key:string)=>memory.get(key)??null,setItem:(key:string,value:string)=>memory.set(key,value),removeItem:(key:string)=>memory.delete(key),clear:()=>memory.clear(),get length(){return memory.size},key:(index:number)=>[...memory.keys()][index]??null},configurable:true});

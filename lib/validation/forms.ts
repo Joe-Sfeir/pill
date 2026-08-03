@@ -1,0 +1,7 @@
+import {z} from "zod";
+const phone=z.string().trim().min(7,"Enter a valid phone number").max(30);
+const accepted=z.boolean().refine(Boolean,"Consent is required");
+export const bookingSchema=z.object({fullName:z.string().trim().min(2,"Enter your full name").max(100),phone,email:z.email("Enter a valid email"),contactMethod:z.enum(["Phone","Email","WhatsApp"]),clientType:z.enum(["New","Returning"]),preferredClass:z.string().min(1,"Choose a class"),preferredDate:z.string().min(1,"Choose a date"),preferredTime:z.string().min(1,"Choose a time"),experience:z.enum(["First time","Some experience","Experienced"]),preferredInstructor:z.string().optional(),limitationNote:z.string().max(1000).optional(),consent:accepted,policy:z.boolean().refine(Boolean,"Confirm the booking policy"),marketing:z.boolean().optional(),whatsappOptIn:z.boolean().optional(),website:z.string().max(0,"Spam detected")});
+export const waitlistSchema=z.object({sessionId:z.string().min(1),fullName:z.string().min(2),phone,email:z.email(),contactMethod:z.enum(["Phone","Email","WhatsApp"]),consent:accepted,website:z.string().max(0)});
+export const contactSchema=z.object({fullName:z.string().min(2),email:z.email(),phone:phone.optional(),message:z.string().min(10).max(2000),consent:accepted,website:z.string().max(0)});
+export type BookingInput=z.infer<typeof bookingSchema>;export type WaitlistInput=z.infer<typeof waitlistSchema>;

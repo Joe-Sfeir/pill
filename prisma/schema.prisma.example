@@ -1,0 +1,13 @@
+// Optional reference only. Prisma is not installed or required.
+generator client { provider = "prisma-client-js" }
+datasource db { provider = "postgresql" url = env("DATABASE_URL") }
+model Client { id String @id @default(cuid()) name String email String? phone String createdAt DateTime @default(now()) bookings Booking[] consents ConsentRecord[] }
+model Instructor { id String @id @default(cuid()) slug String @unique name String sessions Session[] }
+model Class { id String @id @default(cuid()) slug String @unique name String sessions Session[] }
+model Session { id String @id @default(cuid()) startsAt DateTime endsAt DateTime status String classId String instructorId String class Class @relation(fields:[classId],references:[id]) instructor Instructor @relation(fields:[instructorId],references:[id]) bookings Booking[] waitlist WaitlistEntry[] }
+model Package { id String @id @default(cuid()) name String price Decimal? currency String memberships Membership[] }
+model Membership { id String @id @default(cuid()) clientId String packageId String status String package Package @relation(fields:[packageId],references:[id]) }
+model Booking { id String @id @default(cuid()) clientId String sessionId String status String client Client @relation(fields:[clientId],references:[id]) session Session @relation(fields:[sessionId],references:[id]) }
+model WaitlistEntry { id String @id @default(cuid()) sessionId String name String email String phone String session Session @relation(fields:[sessionId],references:[id]) }
+model StudioClosure { id String @id @default(cuid()) startsAt DateTime endsAt DateTime note String? }
+model ConsentRecord { id String @id @default(cuid()) clientId String? category String granted Boolean version String createdAt DateTime @default(now()) client Client? @relation(fields:[clientId],references:[id]) }

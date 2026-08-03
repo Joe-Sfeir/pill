@@ -1,0 +1,1 @@
+import {NextResponse} from "next/server";import {packages} from "@/content/data";export async function GET(){return NextResponse.json({ok:true,data:packages,mode:"mock",notice:"Prices and terms are placeholders."})}
