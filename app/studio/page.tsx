@@ -1,1 +1,75 @@
-import type {Metadata} from "next";import {PageHeader} from "@/components/ui/PageHeader";import {studio} from "@/config/studio";export const metadata:Metadata={title:"Studio",description:"Studio environment, arrival, access, etiquette, and safety information."};export default function Page(){return <><PageHeader eyebrow="The space" title="A room built for attention." intro="The interior, facilities, access, and arrival details below are placeholders pending a site audit."/><section className="section container"><div className="gallery"><div><span className="technical">Main training room · image pending</span></div><div><span className="technical">Arrival area · image pending</span></div><div><span className="technical">Material study · image pending</span></div></div></section><section className="section container split"><div><h2>Equipment</h2><p>Classes use generic specialized resistance equipment. Brand names and affiliations are intentionally omitted until verified.</p><h2>Facilities</h2><p>[Changing and washroom facilities to be confirmed.]</p><h2>Access</h2><p>[Step-free route, doorway widths, accessible washroom, seating, and sensory conditions require an on-site audit.]</p></div><div><h2>Arrival + parking</h2><p>{studio.address}</p><p>{studio.parking}</p><h2>Etiquette</h2><p>Arrive on time, follow equipment instructions, respect personal space, and keep phones silent. Final policy pending.</p><h2>Health + safety</h2><p>Disclose relevant concerns privately. Instructors may modify or decline participation for safety.</p><a className="btn outline" href={studio.mapUrl} target="_blank" rel="noopener noreferrer">Open map</a></div></section></>}
+import type { Metadata } from "next";
+import Image from "next/image";
+import { PageHeader } from "@/components/ui/PageHeader";
+import { studio } from "@/config/studio";
+export const metadata: Metadata = {
+  title: "Studio",
+  description:
+    "Studio environment, arrival, access, etiquette, and safety information.",
+};
+export default function Page() {
+  return (
+    <>
+      <PageHeader
+        eyebrow="The space"
+        title="A room built for attention."
+        intro="The interior, facilities, access, and arrival details below are placeholders pending a site audit."
+      />
+      <section className="section container">
+        <div className="gallery">
+          <div className="gallery-image studio-panorama">
+            <Image src="/images/studio-room.png" alt="Sculptural studio room with generic resistance equipment" fill sizes="(max-width: 900px) 100vw, 65vw" priority />
+            <span className="media-caption technical">Main training room · campaign visualization</span>
+          </div>
+          <div className="gallery-image">
+            <Image src="/images/tension-detail.png" alt="Close detail of resistance straps held under tension" fill sizes="(max-width: 900px) 100vw, 35vw" />
+            <span className="media-caption technical">Material + resistance study</span>
+          </div>
+          <div className="gallery-image group-crop">
+            <Image src="/images/class-group.png" alt="Inclusive controlled group movement in the studio" fill sizes="(max-width: 900px) 100vw, 35vw" />
+            <span className="media-caption technical">Group practice · campaign visualization</span>
+          </div>
+        </div>
+      </section>
+      <section className="section container split">
+        <div>
+          <h2>Equipment</h2>
+          <p>
+            Classes use generic specialized resistance equipment. Brand names
+            and affiliations are intentionally omitted until verified.
+          </p>
+          <h2>Facilities</h2>
+          <p>[Changing and washroom facilities to be confirmed.]</p>
+          <h2>Access</h2>
+          <p>
+            [Step-free route, doorway widths, accessible washroom, seating, and
+            sensory conditions require an on-site audit.]
+          </p>
+        </div>
+        <div>
+          <h2>Arrival + parking</h2>
+          <p>{studio.address}</p>
+          <p>{studio.parking}</p>
+          <h2>Etiquette</h2>
+          <p>
+            Arrive on time, follow equipment instructions, respect personal
+            space, and keep phones silent. Final policy pending.
+          </p>
+          <h2>Health + safety</h2>
+          <p>
+            Disclose relevant concerns privately. Instructors may modify or
+            decline participation for safety.
+          </p>
+          <a
+            className="btn outline"
+            href={studio.mapUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Open map
+          </a>
+        </div>
+      </section>
+    </>
+  );
+}
