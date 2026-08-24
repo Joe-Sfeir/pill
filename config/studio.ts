@@ -3,7 +3,7 @@ export const studio = {
   shortName: "FORME",
   description:
     "A fictional boutique movement studio concept for slow, controlled resistance training and Pilates-inspired practice.",
-  logo: "/forme-mark.svg",
+  logo: "/samples/pilates/forme-mark.svg",
   phone: "+961 76 300 011",
   whatsapp: process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "96176300011",
   email: process.env.STUDIO_CONTACT_EMAIL || "spline@e19company.com",
@@ -50,9 +50,7 @@ export const studio = {
   analytics: { enabled: false, id: process.env.ANALYTICS_ID || "" },
   siteUrl:
     process.env.NEXT_PUBLIC_SITE_URL ||
-    (process.env.VERCEL_PROJECT_PRODUCTION_URL
-      ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
-      : "http://localhost:3000"),
+    "https://spline.e19company.com/samples/pilates",
 } as const;
 
 export type StudioConfig = typeof studio;

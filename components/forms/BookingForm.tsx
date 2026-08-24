@@ -31,7 +31,7 @@ export function BookingForm({
   const onSubmit = async (data: BookingInput) => {
     setState("idle");
     try {
-      const r = await fetch("/api/bookings", {
+      const r = await fetch("/samples/pilates/api/bookings", {
         method: "POST",
         headers: { "content-type": "application/json" },
         body: JSON.stringify(data),

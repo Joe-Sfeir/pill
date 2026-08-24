@@ -19,7 +19,7 @@ export default function Page() {
         <div className="gallery">
           <div className="gallery-image studio-panorama">
             <Image
-              src="/images/studio-room.webp"
+              src="/samples/pilates/images/studio-room.webp"
               alt="Sculptural studio room with generic resistance equipment"
               fill
               sizes="(max-width: 900px) 100vw, 65vw"
@@ -31,7 +31,7 @@ export default function Page() {
           </div>
           <div className="gallery-image">
             <Image
-              src="/images/tension-detail.webp"
+              src="/samples/pilates/images/tension-detail.webp"
               alt="Close detail of resistance straps held under tension"
               fill
               sizes="(max-width: 900px) 100vw, 35vw"
@@ -42,7 +42,7 @@ export default function Page() {
           </div>
           <div className="gallery-image group-crop">
             <Image
-              src="/images/class-group.webp"
+              src="/samples/pilates/images/class-group.webp"
               alt="Inclusive controlled group movement in the studio"
               fill
               sizes="(max-width: 900px) 100vw, 35vw"

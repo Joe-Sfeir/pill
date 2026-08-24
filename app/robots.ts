@@ -2,7 +2,7 @@ import type { MetadataRoute } from "next";
 import { studio } from "@/config/studio";
 export default function robots(): MetadataRoute.Robots {
   return {
-    rules: { userAgent: "*", allow: "/", disallow: ["/api/"] },
+    rules: { userAgent: "*", allow: "/", disallow: ["/samples/pilates/api/"] },
     sitemap: `${studio.siteUrl}/sitemap.xml`,
   };
 }

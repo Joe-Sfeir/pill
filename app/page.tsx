@@ -89,7 +89,7 @@ export default function Home() {
             <article className="class-card" key={c.id}>
               <div className="card-media">
                 <Image
-                  src="/images/class-group.webp"
+                  src="/samples/pilates/images/class-group.webp"
                   alt="Two clients practicing controlled resistance movement"
                   fill
                   sizes="(max-width: 900px) 100vw, 50vw"
@@ -169,7 +169,7 @@ export default function Home() {
         <div className="gallery">
           <div className="gallery-image">
             <Image
-              src="/images/studio-room.webp"
+              src="/samples/pilates/images/studio-room.webp"
               alt="Warm sculptural resistance-training studio with limestone and linen"
               fill
               sizes="(max-width: 900px) 100vw, 60vw"
@@ -180,7 +180,7 @@ export default function Home() {
           </div>
           <div className="gallery-image portrait-crop">
             <Image
-              src="/images/instructor-editorial.webp"
+              src="/samples/pilates/images/instructor-editorial.webp"
               alt="Fictional FORME instructor portrait in warm natural light"
               fill
               sizes="(max-width: 900px) 100vw, 30vw"

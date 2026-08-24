@@ -42,7 +42,7 @@ export default function Page() {
         <div className="first-session-sticky">
           <div className="journey-image">
             <Image
-              src="/images/studio-room.webp"
+              src="/samples/pilates/images/studio-room.webp"
               alt="Quiet studio prepared before a first session"
               fill
               sizes="(max-width: 900px) 100vw, 50vw"

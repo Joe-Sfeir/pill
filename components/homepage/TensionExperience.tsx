@@ -67,7 +67,7 @@ export function TensionExperience() {
         <div className="tension-grid">
           <div className="tension-visual">
             <Image
-              src="/images/tension-detail.webp"
+              src="/samples/pilates/images/tension-detail.webp"
               alt="Hands controlling resistance straps with deliberate tension"
               fill
               sizes="(max-width: 900px) 100vw, 50vw"

@@ -18,7 +18,7 @@ export function WaitlistForm() {
   const submit = async (data: WaitlistInput) => {
     setStatus("idle");
     try {
-      const response = await fetch("/api/waitlist", {
+      const response = await fetch("/samples/pilates/api/waitlist", {
         method: "POST",
         headers: { "content-type": "application/json" },
         body: JSON.stringify(data),
