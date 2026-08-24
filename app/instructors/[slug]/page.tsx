@@ -1,1 +1,68 @@
-import type {Metadata} from "next";import {notFound} from "next/navigation";import Link from "next/link";import {classes,instructors} from "@/content/data";import {Breadcrumbs} from "@/components/ui/Breadcrumbs";export function generateStaticParams(){return instructors.map(i=>({slug:i.slug}))}export async function generateMetadata({params}:{params:Promise<{slug:string}>}):Promise<Metadata>{const {slug}=await params;const i=instructors.find(x=>x.slug===slug);return {title:i?.name||"Instructor not found",description:i?.shortBio}}export default async function Page({params}:{params:Promise<{slug:string}>}){const {slug}=await params;const i=instructors.find(x=>x.slug===slug);if(!i)notFound();return <><header className="page-head"><div className="container"><Breadcrumbs items={[{label:"Instructors",href:"/instructors"},{label:i.name}]}/><p className="eyebrow">{i.role}</p><h1 className="title">{i.name}</h1><p>{i.fullBio}</p></div></header><section className="section container split"><div><h2>Teaching focus</h2><p>{i.specialties.join(" · ")}</p><p>{i.teachingStyle}</p></div><div><h2>Verified credentials</h2><p className="placeholder">{i.credentials.join(", ")}. Do not publish credentials until documentary verification.</p><h2>Classes</h2>{classes.filter(c=>i.classIds.includes(c.id)).map(c=><p key={c.id}><Link href={`/classes/${c.slug}`}>{c.name} →</Link></p>)}<Link className="btn" href="/schedule">View schedule</Link></div></section></>}
+import type { Metadata } from "next";
+import { notFound } from "next/navigation";
+import Link from "next/link";
+import { classes, instructors } from "@/content/data";
+import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
+export function generateStaticParams() {
+  return instructors.map((i) => ({ slug: i.slug }));
+}
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const { slug } = await params;
+  const i = instructors.find((x) => x.slug === slug);
+  return { title: i?.name || "Instructor not found", description: i?.shortBio };
+}
+export default async function Page({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
+  const { slug } = await params;
+  const i = instructors.find((x) => x.slug === slug);
+  if (!i) notFound();
+  return (
+    <>
+      <header className="page-head">
+        <div className="container">
+          <Breadcrumbs
+            items={[
+              { label: "Instructors", href: "/instructors" },
+              { label: i.name },
+            ]}
+          />
+          <p className="eyebrow">{i.role}</p>
+          <h1 className="title">{i.name}</h1>
+          <p>{i.fullBio}</p>
+        </div>
+      </header>
+      <section className="section container split">
+        <div>
+          <h2>Teaching focus</h2>
+          <p>{i.specialties.join(" · ")}</p>
+          <p>{i.teachingStyle}</p>
+        </div>
+        <div>
+          <h2>Profile disclosure</h2>
+          <p className="placeholder">
+            Fictional Spline concept profile. No qualifications, employment, or
+            professional credentials are claimed.
+          </p>
+          <h2>Classes</h2>
+          {classes
+            .filter((c) => i.classIds.includes(c.id))
+            .map((c) => (
+              <p key={c.id}>
+                <Link href={`/classes/${c.slug}`}>{c.name} →</Link>
+              </p>
+            ))}
+          <Link className="btn" href="/schedule">
+            View schedule
+          </Link>
+        </div>
+      </section>
+    </>
+  );
+}

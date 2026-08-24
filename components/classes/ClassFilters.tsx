@@ -1,3 +1,101 @@
 "use client";
-import {useMemo,useState} from "react";import Link from "next/link";import {classes} from "@/content/data";
-export function ClassFilters(){const [intensity,setIntensity]=useState("");const [level,setLevel]=useState("");const [duration,setDuration]=useState("");const [first,setFirst]=useState(false);const list=useMemo(()=>classes.filter(c=>(!intensity||c.intensity===intensity)&&(!level||c.level===level)&&(!duration||c.duration===Number(duration))&&(!first||c.firstTimerSuitable)),[intensity,level,duration,first]);return <><div className="filters"><div className="field"><label htmlFor="intensity">Intensity</label><select id="intensity" value={intensity} onChange={e=>setIntensity(e.target.value)}><option value="">All</option><option>Gentle</option><option>Moderate</option><option>Challenging</option></select></div><div className="field"><label htmlFor="level">Experience</label><select id="level" value={level} onChange={e=>setLevel(e.target.value)}><option value="">All</option><option>Beginner</option><option>All levels</option><option>Experienced</option></select></div><div className="field"><label htmlFor="duration">Duration</label><select id="duration" value={duration} onChange={e=>setDuration(e.target.value)}><option value="">All</option><option value="45">45 min</option><option value="50">50 min</option><option value="55">55 min</option></select></div><label><input type="checkbox" checked={first} onChange={e=>setFirst(e.target.checked)}/> First-timer suitable</label></div><div aria-live="polite" className="technical">{list.length} classes</div><div className="index-grid">{list.map(c=><article className="class-card" key={c.id}><div><span className="tag">{c.intensity}</span> <span className="tag">{c.duration} min</span>{c.firstTimerSuitable&&<> <span className="tag">First session</span></>}<h2>{c.name}</h2><p>{c.shortDescription}</p></div><Link className="btn outline" href={`/classes/${c.slug}`}>View class</Link></article>)}</div>{list.length===0&&<p className="section">No class types match those filters.</p>}</>}
+import { useMemo, useState } from "react";
+import Link from "next/link";
+import { classes } from "@/content/data";
+export function ClassFilters() {
+  const [intensity, setIntensity] = useState("");
+  const [level, setLevel] = useState("");
+  const [duration, setDuration] = useState("");
+  const [first, setFirst] = useState(false);
+  const list = useMemo(
+    () =>
+      classes.filter(
+        (c) =>
+          (!intensity || c.intensity === intensity) &&
+          (!level || c.level === level) &&
+          (!duration || c.duration === Number(duration)) &&
+          (!first || c.firstTimerSuitable),
+      ),
+    [intensity, level, duration, first],
+  );
+  return (
+    <>
+      <div className="filters">
+        <div className="field">
+          <label htmlFor="intensity">Intensity</label>
+          <select
+            id="intensity"
+            value={intensity}
+            onChange={(e) => setIntensity(e.target.value)}
+          >
+            <option value="">All</option>
+            <option>Gentle</option>
+            <option>Moderate</option>
+            <option>Challenging</option>
+          </select>
+        </div>
+        <div className="field">
+          <label htmlFor="level">Experience</label>
+          <select
+            id="level"
+            value={level}
+            onChange={(e) => setLevel(e.target.value)}
+          >
+            <option value="">All</option>
+            <option>Beginner</option>
+            <option>All levels</option>
+            <option>Experienced</option>
+          </select>
+        </div>
+        <div className="field">
+          <label htmlFor="duration">Duration</label>
+          <select
+            id="duration"
+            value={duration}
+            onChange={(e) => setDuration(e.target.value)}
+          >
+            <option value="">All</option>
+            <option value="45">45 min</option>
+            <option value="50">50 min</option>
+            <option value="55">55 min</option>
+          </select>
+        </div>
+        <label>
+          <input
+            type="checkbox"
+            checked={first}
+            onChange={(e) => setFirst(e.target.checked)}
+          />{" "}
+          First-timer suitable
+        </label>
+      </div>
+      <div aria-live="polite" className="technical">
+        {list.length} classes
+      </div>
+      <div className="index-grid">
+        {list.map((c) => (
+          <article className="class-card" key={c.id}>
+            <div>
+              <span className="tag">{c.intensity}</span>{" "}
+              <span className="tag">{c.duration} min</span>
+              {c.firstTimerSuitable && (
+                <>
+                  {" "}
+                  <span className="tag">First session</span>
+                </>
+              )}
+              <h2>{c.name}</h2>
+              <p>{c.shortDescription}</p>
+            </div>
+            <Link className="btn outline" href={`/classes/${c.slug}`}>
+              View class
+            </Link>
+          </article>
+        ))}
+      </div>
+      {list.length === 0 && (
+        <p className="section">No class types match those filters.</p>
+      )}
+    </>
+  );
+}

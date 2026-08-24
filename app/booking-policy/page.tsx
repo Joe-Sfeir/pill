@@ -1,1 +1,40 @@
-import type {Metadata} from "next";import {LegalTemplate} from "@/components/legal/LegalTemplate";export const metadata:Metadata={title:"Booking Policy",description:"Template booking policy."};export default function Page(){return <LegalTemplate title="Booking Policy" intro="Placeholder rules for booking and attendance." sections={[{heading:"Booking window and capacity",body:"[Booking window and actual class capacities to confirm.] Mock capacity is never presented as live."},{heading:"Confirmation",body:"A website request is not confirmed until the studio or connected platform issues confirmation."},{heading:"First sessions",body:"Eligibility, introductory-offer limits, and beginner-appropriate sessions must be confirmed."},{heading:"Arrival and grip socks",body:"Arrive [X] minutes early. [Grip-sock policy to confirm.]"},{heading:"Late entry",body:"Late entry may not be permitted. Insert the final cutoff and treatment of the booking."},{heading:"Changes and closures",body:"Instructor substitutions, timetable changes, equipment issues, and studio closures may occur; insert the actual notice process."}]}/>}
+import type { Metadata } from "next";
+import { LegalTemplate } from "@/components/legal/LegalTemplate";
+export const metadata: Metadata = {
+  title: "Booking Policy",
+  description: "Illustrative booking policy for the fictional FORME concept.",
+};
+export default function Page() {
+  return (
+    <LegalTemplate
+      title="Booking Policy"
+      intro="Illustrative rules for this fictional concept; no booking or payment is available."
+      sections={[
+        {
+          heading: "Booking window and capacity",
+          body: "Demonstration requests may be submitted up to 30 days ahead. Listed capacities and statuses are illustrative rather than live.",
+        },
+        {
+          heading: "Confirmation",
+          body: "The demonstration endpoint returns a receipt, discards submitted details, and never creates a reservation.",
+        },
+        {
+          heading: "First sessions",
+          body: "Foundation and selected Core + Stability sessions are marked first-timer suitable in the illustrative timetable.",
+        },
+        {
+          heading: "Arrival and grip socks",
+          body: "The concept asks first-time visitors to arrive ten minutes early and wear grip socks for equipment sessions.",
+        },
+        {
+          heading: "Late entry",
+          body: "The illustrative policy allows entry up to five minutes after start only when the instructor can accommodate it safely.",
+        },
+        {
+          heading: "Changes and closures",
+          body: "In a real implementation, confirmed clients would receive direct notice of substitutions, timetable changes, or closures.",
+        },
+      ]}
+    />
+  );
+}

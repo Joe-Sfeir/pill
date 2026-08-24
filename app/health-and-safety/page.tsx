@@ -1,1 +1,36 @@
-import type {Metadata} from "next";import {LegalTemplate} from "@/components/legal/LegalTemplate";export const metadata:Metadata={title:"Health and Safety",description:"Health, participation, and equipment safety template."};export default function Page(){return <LegalTemplate title="Health and Safety" intro="Practical participation information—not medical advice." sections={[{heading:"Private disclosure",body:"Tell the studio privately about relevant injuries, health concerns, pregnancy, or limitations before participating. Do not send unnecessary sensitive detail through WhatsApp."},{heading:"Professional guidance",body:"This website does not provide medical advice. Seek appropriate medical guidance before exercise where relevant."},{heading:"Participation decisions",body:"An instructor may offer options, stop an activity, or decline participation for safety. This is not diagnosis or treatment."},{heading:"Pregnancy",body:"Participation requires an approved studio policy and appropriate professional guidance. No prenatal or postnatal offering is currently claimed."},{heading:"Equipment and emergencies",body:"Follow instructor setup and transition instructions. Insert actual inspection, cleaning, incident, evacuation, first-aid, and emergency procedures after an operational review."}]}/>}
+import type { Metadata } from "next";
+import { LegalTemplate } from "@/components/legal/LegalTemplate";
+export const metadata: Metadata = {
+  title: "Health and Safety",
+  description: "Health, participation, and equipment safety template.",
+};
+export default function Page() {
+  return (
+    <LegalTemplate
+      title="Health and Safety"
+      intro="Practical participation information—not medical advice."
+      sections={[
+        {
+          heading: "Private disclosure",
+          body: "Tell the studio privately about relevant injuries, health concerns, pregnancy, or limitations before participating. Do not send unnecessary sensitive detail through WhatsApp.",
+        },
+        {
+          heading: "Professional guidance",
+          body: "This website does not provide medical advice. Seek appropriate medical guidance before exercise where relevant.",
+        },
+        {
+          heading: "Participation decisions",
+          body: "An instructor may offer options, stop an activity, or decline participation for safety. This is not diagnosis or treatment.",
+        },
+        {
+          heading: "Pregnancy",
+          body: "Participation requires an approved studio policy and appropriate professional guidance. No prenatal or postnatal offering is currently claimed.",
+        },
+        {
+          heading: "Equipment and emergencies",
+          body: "Follow instructor setup and transition instructions. Insert actual inspection, cleaning, incident, evacuation, first-aid, and emergency procedures after an operational review.",
+        },
+      ]}
+    />
+  );
+}

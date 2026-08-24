@@ -1,1 +1,16 @@
-import {NextResponse} from "next/server";import {contactSchema} from "@/lib/validation/forms";import {limited,safeError} from "@/lib/api/http";export async function POST(request:Request){if(limited(request))return safeError(429,"Please wait before trying again.");try{contactSchema.parse(await request.json());return NextResponse.json({ok:true,data:{id:`mock-contact-${crypto.randomUUID()}`}},{status:201})}catch{return safeError()}}
+import { NextResponse } from "next/server";
+import { contactSchema } from "@/lib/validation/forms";
+import { limited, safeError } from "@/lib/api/http";
+export async function POST(request: Request) {
+  if (limited(request))
+    return safeError(429, "Please wait before trying again.");
+  try {
+    contactSchema.parse(await request.json());
+    return NextResponse.json(
+      { ok: true, receipt: `demo-contact-${crypto.randomUUID()}`, mode: "demo", retained: false },
+      { status: 201 },
+    );
+  } catch {
+    return safeError();
+  }
+}

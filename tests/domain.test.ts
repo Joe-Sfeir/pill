@@ -1,1 +1,34 @@
-import {describe,expect,it} from "vitest";import {classes,instructors,sessions} from "@/content/data";import {filterClasses} from "@/lib/classes/filter";import {filterSchedule} from "@/lib/schedule/filter";import {instructorBySlug} from "@/lib/instructors/lookup";import {convertUsdToLbp,formatCurrency} from "@/lib/formatting";describe("domain utilities",()=>{it("filters first-timer classes",()=>expect(filterClasses(classes,{firstTimer:true}).every(c=>c.firstTimerSuitable)).toBe(true));it("filters class intensity and duration",()=>expect(filterClasses(classes,{intensity:"Moderate",duration:50}).map(c=>c.slug)).toEqual(["foundation"]));it("filters available schedule",()=>expect(filterSchedule(sessions,{availableOnly:true}).every(s=>s.status==="Available")).toBe(true));it("looks up active instructor",()=>expect(instructorBySlug(instructors,"maya-placeholder")?.id).toBe("maya"));it("does not invent exchange rates",()=>expect(convertUsdToLbp(20,null)).toBeNull());it("converts only with configured rate",()=>expect(convertUsdToLbp(20,90000)).toBe(1800000));it("formats currency",()=>expect(formatCurrency(20,"USD")).toContain("20"))})
+import { describe, expect, it } from "vitest";
+import { classes, instructors, sessions } from "@/content/data";
+import { filterClasses } from "@/lib/classes/filter";
+import { filterSchedule } from "@/lib/schedule/filter";
+import { instructorBySlug } from "@/lib/instructors/lookup";
+import { convertUsdToLbp, formatCurrency } from "@/lib/formatting";
+describe("domain utilities", () => {
+  it("filters first-timer classes", () =>
+    expect(
+      filterClasses(classes, { firstTimer: true }).every(
+        (c) => c.firstTimerSuitable,
+      ),
+    ).toBe(true));
+  it("filters class intensity and duration", () =>
+    expect(
+      filterClasses(classes, { intensity: "Moderate", duration: 50 }).map(
+        (c) => c.slug,
+      ),
+    ).toEqual(["foundation"]));
+  it("filters available schedule", () =>
+    expect(
+      filterSchedule(sessions, { availableOnly: true }).every(
+        (s) => s.status === "Available",
+      ),
+    ).toBe(true));
+  it("looks up active instructor", () =>
+    expect(instructorBySlug(instructors, "maya-haddad")?.id).toBe("maya"));
+  it("does not invent exchange rates", () =>
+    expect(convertUsdToLbp(20, null)).toBeNull());
+  it("converts only with configured rate", () =>
+    expect(convertUsdToLbp(20, 90000)).toBe(1800000));
+  it("formats currency", () =>
+    expect(formatCurrency(20, "USD")).toContain("20"));
+});

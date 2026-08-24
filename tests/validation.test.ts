@@ -1,1 +1,40 @@
-import {describe,expect,it} from "vitest";import {bookingSchema,waitlistSchema} from "@/lib/validation/forms";const valid={fullName:"Test Client",phone:"+96170123456",email:"test@example.com",contactMethod:"Email",clientType:"New",preferredClass:"foundation",preferredDate:"2026-08-12",preferredTime:"09:00",experience:"First time",consent:true,policy:true,website:""};describe("form validation",()=>{it("accepts a valid booking",()=>expect(bookingSchema.safeParse(valid).success).toBe(true));it("rejects missing booking consent",()=>expect(bookingSchema.safeParse({...valid,consent:false}).success).toBe(false));it("rejects honeypot values",()=>expect(bookingSchema.safeParse({...valid,website:"bot"}).success).toBe(false));it("validates waitlist input",()=>expect(waitlistSchema.safeParse({sessionId:"demo-1",fullName:"Test Client",phone:"+96170123456",email:"test@example.com",contactMethod:"Email",consent:true,website:""}).success).toBe(true))})
+import { describe, expect, it } from "vitest";
+import { bookingSchema, waitlistSchema } from "@/lib/validation/forms";
+const valid = {
+  fullName: "Test Client",
+  phone: "+96170123456",
+  email: "test@example.com",
+  contactMethod: "Email",
+  clientType: "New",
+  preferredClass: "foundation",
+  preferredDate: "2026-08-12",
+  preferredTime: "09:00",
+  experience: "First time",
+  consent: true,
+  policy: true,
+  website: "",
+};
+describe("form validation", () => {
+  it("accepts a valid booking", () =>
+    expect(bookingSchema.safeParse(valid).success).toBe(true));
+  it("rejects missing booking consent", () =>
+    expect(bookingSchema.safeParse({ ...valid, consent: false }).success).toBe(
+      false,
+    ));
+  it("rejects honeypot values", () =>
+    expect(bookingSchema.safeParse({ ...valid, website: "bot" }).success).toBe(
+      false,
+    ));
+  it("validates waitlist input", () =>
+    expect(
+      waitlistSchema.safeParse({
+        sessionId: "demo-1",
+        fullName: "Test Client",
+        phone: "+96170123456",
+        email: "test@example.com",
+        contactMethod: "Email",
+        consent: true,
+        website: "",
+      }).success,
+    ).toBe(true));
+});

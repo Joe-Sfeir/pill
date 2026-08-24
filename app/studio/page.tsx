@@ -13,21 +13,43 @@ export default function Page() {
       <PageHeader
         eyebrow="The space"
         title="A room built for attention."
-        intro="The interior, facilities, access, and arrival details below are placeholders pending a site audit."
+        intro="A complete fictional studio environment demonstrating how access, arrival, facilities, and etiquette can be presented."
       />
       <section className="section container">
         <div className="gallery">
           <div className="gallery-image studio-panorama">
-            <Image src="/images/studio-room.png" alt="Sculptural studio room with generic resistance equipment" fill sizes="(max-width: 900px) 100vw, 65vw" priority />
-            <span className="media-caption technical">Main training room · campaign visualization</span>
+            <Image
+              src="/images/studio-room.webp"
+              alt="Sculptural studio room with generic resistance equipment"
+              fill
+              sizes="(max-width: 900px) 100vw, 65vw"
+              priority
+            />
+            <span className="media-caption technical">
+              Main training room · campaign visualization
+            </span>
           </div>
           <div className="gallery-image">
-            <Image src="/images/tension-detail.png" alt="Close detail of resistance straps held under tension" fill sizes="(max-width: 900px) 100vw, 35vw" />
-            <span className="media-caption technical">Material + resistance study</span>
+            <Image
+              src="/images/tension-detail.webp"
+              alt="Close detail of resistance straps held under tension"
+              fill
+              sizes="(max-width: 900px) 100vw, 35vw"
+            />
+            <span className="media-caption technical">
+              Material + resistance study
+            </span>
           </div>
           <div className="gallery-image group-crop">
-            <Image src="/images/class-group.png" alt="Inclusive controlled group movement in the studio" fill sizes="(max-width: 900px) 100vw, 35vw" />
-            <span className="media-caption technical">Group practice · campaign visualization</span>
+            <Image
+              src="/images/class-group.webp"
+              alt="Inclusive controlled group movement in the studio"
+              fill
+              sizes="(max-width: 900px) 100vw, 35vw"
+            />
+            <span className="media-caption technical">
+              Group practice · campaign visualization
+            </span>
           </div>
         </div>
       </section>
@@ -39,11 +61,12 @@ export default function Page() {
             and affiliations are intentionally omitted until verified.
           </p>
           <h2>Facilities</h2>
-          <p>[Changing and washroom facilities to be confirmed.]</p>
+          <p>Concept amenities include two private changing rooms, lockers, a washroom, filtered water, and a seated waiting niche.</p>
           <h2>Access</h2>
           <p>
-            [Step-free route, doorway widths, accessible washroom, seating, and
-            sensory conditions require an on-site audit.]
+            The concept layout includes a step-free route, 90 cm clear doorway,
+            accessible washroom, seated waiting area, and adjustable lighting.
+            These are illustrative specifications, not claims about a real site.
           </p>
         </div>
         <div>
@@ -53,7 +76,7 @@ export default function Page() {
           <h2>Etiquette</h2>
           <p>
             Arrive on time, follow equipment instructions, respect personal
-            space, and keep phones silent. Final policy pending.
+            space, and keep phones silent.
           </p>
           <h2>Health + safety</h2>
           <p>

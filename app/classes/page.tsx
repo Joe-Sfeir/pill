@@ -1,1 +1,22 @@
-import type {Metadata} from "next";import {PageHeader} from "@/components/ui/PageHeader";import {ClassFilters} from "@/components/classes/ClassFilters";export const metadata:Metadata={title:"Classes",description:"Browse FORME class types by intensity, experience, and duration."};export default function Page(){return <><PageHeader eyebrow="Class index" title="Different focus. Same control." intro="Filter the demonstration class program. Final names and programming require studio approval."/><section className="section container"><ClassFilters/></section></>}
+import type { Metadata } from "next";
+import { PageHeader } from "@/components/ui/PageHeader";
+import { ClassFilters } from "@/components/classes/ClassFilters";
+export const metadata: Metadata = {
+  title: "Classes",
+  description:
+    "Browse FORME class types by intensity, experience, and duration.",
+};
+export default function Page() {
+  return (
+    <>
+      <PageHeader
+        eyebrow="Class index"
+        title="Different focus. Same control."
+        intro="Filter the demonstration class program. Final names and programming require studio approval."
+      />
+      <section className="section container">
+        <ClassFilters />
+      </section>
+    </>
+  );
+}

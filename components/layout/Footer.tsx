@@ -1,3 +1,86 @@
 "use client";
-import Link from "next/link";import {studio} from "@/config/studio";import {CookieButton} from "@/components/consent/CookieConsent";
-export function Footer(){return <footer className="footer"><div className="container footer-grid"><div><div className="wordmark">{studio.shortName}</div><p>{studio.address}</p><p><a href={`tel:${studio.phone}`}>{studio.phone}</a><br/><a href={`https://wa.me/${studio.whatsapp}`} target="_blank" rel="noopener noreferrer">WhatsApp</a><br/><a href={`mailto:${studio.email}`}>{studio.email}</a></p>{studio.openingHours.map(x=><div key={x}>{x}</div>)}</div><div><p className="technical">Explore</p>{[["Method","/method"],["Classes","/classes"],["Schedule","/schedule"],["Instructors","/instructors"],["Memberships","/memberships"],["Studio","/studio"],["FAQ","/faq"],["Contact","/contact"]].map(([n,h])=><div key={h}><Link href={h}>{n}</Link></div>)}</div><div><p className="technical">Begin</p><div><Link href="/first-session">First session</Link></div><div><Link href="/book">Book</Link></div><div><a href={studio.social.instagram} target="_blank" rel="noopener noreferrer">Instagram</a></div></div><div><p className="technical">Policies</p>{[["Booking","/booking-policy"],["Cancellation","/cancellation-policy"],["Privacy","/privacy-policy"],["Terms","/terms-of-service"],["Cookies","/cookie-policy"],["Health & Safety","/health-and-safety"],["Accessibility","/accessibility"]].map(([n,h])=><div key={h}><Link href={h}>{n}</Link></div>)}<CookieButton/></div></div><div className="container rule" style={{marginTop:"4rem",paddingTop:"1rem"}}>© {new Date().getFullYear()} {studio.name}. Placeholder website.</div></footer>}
+import Link from "next/link";
+import { studio } from "@/config/studio";
+import { CookieButton } from "@/components/consent/CookieConsent";
+
+const explore = [
+  ["Method", "/method"],
+  ["Classes", "/classes"],
+  ["Schedule", "/schedule"],
+  ["Instructors", "/instructors"],
+  ["Memberships", "/memberships"],
+  ["Studio", "/studio"],
+  ["FAQ", "/faq"],
+  ["Contact", "/contact"],
+];
+const policies = [
+  ["Booking", "/booking-policy"],
+  ["Cancellation", "/cancellation-policy"],
+  ["Privacy", "/privacy-policy"],
+  ["Terms", "/terms-of-service"],
+  ["Cookies", "/cookie-policy"],
+  ["Health & Safety", "/health-and-safety"],
+  ["Accessibility", "/accessibility"],
+];
+
+export function Footer() {
+  return (
+    <footer className="footer">
+      <div className="container footer-grid">
+        <div>
+          <div className="wordmark">{studio.shortName}</div>
+          <p>{studio.address}</p>
+          <p>
+            <a href={`tel:${studio.phone}`}>{studio.phone}</a>
+            <br />
+            <a
+              href={`https://wa.me/${studio.whatsapp}`}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              WhatsApp Spline
+            </a>
+            <br />
+            <a href={`mailto:${studio.email}`}>{studio.email}</a>
+          </p>
+          {studio.openingHours.map((x) => (
+            <div key={x}>{x}</div>
+          ))}
+        </div>
+        <div>
+          <p className="technical">Explore</p>
+          {explore.map(([n, h]) => (
+            <div key={h}>
+              <Link href={h}>{n}</Link>
+            </div>
+          ))}
+        </div>
+        <div>
+          <p className="technical">Begin</p>
+          <div>
+            <Link href="/first-session">First session</Link>
+          </div>
+          <div>
+            <Link href="/book">Book</Link>
+          </div>
+        </div>
+        <div>
+          <p className="technical">Policies</p>
+          {policies.map(([n, h]) => (
+            <div key={h}>
+              <Link href={h}>{n}</Link>
+            </div>
+          ))}
+          <CookieButton />
+        </div>
+      </div>
+      <div
+        className="container rule"
+        style={{ marginTop: "4rem", paddingTop: "1rem" }}
+      >
+        © {new Date().getFullYear()} FORME · fictional Spline concept
+        demonstration. Contact Spline at {studio.phone}.
+      </div>
+    </footer>
+  );
+}

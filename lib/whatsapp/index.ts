@@ -1,1 +1,18 @@
-import {studio} from "@/config/studio";export type InquiryType="general"|"first-session"|"membership"|"schedule";const messages:Record<InquiryType,string>={general:`Hello ${studio.shortName}, I’d like to ask about the studio.`,"first-session":`Hello ${studio.shortName}, I’d like information about a first session.`,membership:`Hello ${studio.shortName}, I’d like information about packages and memberships.`,schedule:`Hello ${studio.shortName}, I’d like help with the schedule.`};export function whatsappUrl(type:InquiryType,number=studio.whatsapp){const clean=number.replace(/\D/g,"");if(!clean)return "#";return `https://wa.me/${clean}?text=${encodeURIComponent(messages[type])}`}
+import { studio } from "@/config/studio";
+export type InquiryType =
+  "general" | "first-session" | "membership" | "schedule";
+const messages: Record<InquiryType, string> = {
+  general:
+    "Hello Spline, I viewed the FORME studio concept and would like to discuss a similar website and booking system.",
+  "first-session":
+    "Hello Spline, I tried the FORME first-session demonstration and would like to discuss a similar booking flow.",
+  membership:
+    "Hello Spline, I viewed the FORME package demonstration and would like to discuss a similar system.",
+  schedule:
+    "Hello Spline, I tried the FORME schedule demonstration and would like to discuss a similar system.",
+};
+export function whatsappUrl(type: InquiryType, number = studio.whatsapp) {
+  const clean = number.replace(/\D/g, "");
+  if (!clean) return "#";
+  return `https://wa.me/${clean}?text=${encodeURIComponent(messages[type])}`;
+}

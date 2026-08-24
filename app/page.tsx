@@ -4,6 +4,7 @@ import { classes, faqs, instructors, packages } from "@/content/data";
 import { ScheduleList } from "@/components/schedule/ScheduleList";
 import { studio } from "@/config/studio";
 import { TensionExperience } from "@/components/homepage/TensionExperience";
+import { whatsappUrl } from "@/lib/whatsapp";
 export default function Home() {
   return (
     <>
@@ -29,7 +30,7 @@ export default function Home() {
             </Link>
           </div>
           <p className="technical" style={{ marginTop: "2rem" }}>
-            {studio.address} · Campaign image: placeholder
+            {studio.address} · Fictional campaign visualization
           </p>
         </div>
       </section>
@@ -50,7 +51,7 @@ export default function Home() {
           Packages
         </Link>
         <a
-          href={`https://wa.me/${studio.whatsapp}`}
+          href={whatsappUrl("general")}
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -70,9 +71,9 @@ export default function Home() {
             impossible to ignore.
           </p>
           <p>
-            Our placeholder method combines Pilates-inspired principles with
-            resistance-based group training. Final class programming and
-            terminology must be approved by the studio.
+            This fictional method combines Pilates-inspired principles with
+            resistance-based group training to demonstrate how a complete studio
+            experience can be presented clearly.
           </p>
           <Link className="btn outline" href="/method">
             Explore the method
@@ -88,7 +89,7 @@ export default function Home() {
             <article className="class-card" key={c.id}>
               <div className="card-media">
                 <Image
-                  src="/images/class-group.png"
+                  src="/images/class-group.webp"
                   alt="Two clients practicing controlled resistance movement"
                   fill
                   sizes="(max-width: 900px) 100vw, 50vw"
@@ -168,21 +169,25 @@ export default function Home() {
         <div className="gallery">
           <div className="gallery-image">
             <Image
-              src="/images/studio-room.png"
+              src="/images/studio-room.webp"
               alt="Warm sculptural resistance-training studio with limestone and linen"
               fill
               sizes="(max-width: 900px) 100vw, 60vw"
             />
-            <span className="media-caption technical">Studio campaign study</span>
+            <span className="media-caption technical">
+              Studio campaign study
+            </span>
           </div>
           <div className="gallery-image portrait-crop">
             <Image
-              src="/images/instructor-editorial.png"
-              alt="Placeholder instructor portrait in warm natural light"
+              src="/images/instructor-editorial.webp"
+              alt="Fictional FORME instructor portrait in warm natural light"
               fill
               sizes="(max-width: 900px) 100vw, 30vw"
             />
-            <span className="media-caption technical">Beirut · team placeholder</span>
+            <span className="media-caption technical">
+              Fictional instructor study
+            </span>
           </div>
         </div>
         <div>
@@ -191,8 +196,9 @@ export default function Home() {
             An intimate space for exacting work.
           </h2>
           <p>
-            Interior photography, changing facilities, parking, access, and
-            equipment details are placeholders awaiting confirmation.
+            A complete fictional studio environment demonstrates arrival,
+            access, equipment, and booking information without representing an
+            operating venue.
           </p>
           <Link className="btn outline" href="/studio">
             Visit the studio
@@ -203,7 +209,8 @@ export default function Home() {
         <p className="eyebrow">Ways to practice</p>
         <h2 className="section-title">Packages without pressure.</h2>
         <p className="placeholder">
-          All prices and commercial terms are configurable placeholders.
+          Illustrative prices for this fictional concept. No payment is
+          collected.
         </p>
         <div className="index-grid">
           {packages.slice(0, 3).map((p) => (
@@ -212,7 +219,7 @@ export default function Home() {
                 <span className="tag">{p.type}</span>
                 <h3>{p.name}</h3>
                 <p>{p.description}</p>
-                <strong>Price to be confirmed</strong>
+                <strong>USD {p.price.USD} · demo price</strong>
               </div>
               <Link href="/memberships">Compare →</Link>
             </article>
@@ -221,14 +228,14 @@ export default function Home() {
       </section>
       <section className="section container split">
         <div>
-          <p className="eyebrow">Client voices</p>
-          <h2 className="section-title">Stories will live here.</h2>
+          <p className="eyebrow">Concept proof</p>
+          <h2 className="section-title">A complete client journey.</h2>
         </div>
         <div className="placeholder">
-          <strong>Testimonials placeholder.</strong>
+          <strong>Explore before you enquire.</strong>
           <p>
-            No reviews have been invented. Add only consented, attributable
-            client feedback supplied by the studio.
+            Browse classes, filter the timetable, compare packages, download a
+            calendar file, and complete a non-retaining booking demonstration.
           </p>
         </div>
       </section>
@@ -263,7 +270,7 @@ export default function Home() {
           </a>
           <a
             className="btn"
-            href={`https://wa.me/${studio.whatsapp}`}
+            href={whatsappUrl("general")}
             target="_blank"
             rel="noopener noreferrer"
           >

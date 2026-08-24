@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   description: "What to expect and how to request your first FORME session.",
 };
 const steps = [
-  ["Arrive", "Arrive [X] minutes early. Final arrival guidance is pending."],
+  ["Arrive", "Arrive ten minutes early for the illustrative equipment orientation."],
   [
     "Check in",
     "Meet the front desk and confirm the information needed for class.",
@@ -41,13 +41,19 @@ export default function Page() {
       <section className="section container split">
         <div className="first-session-sticky">
           <div className="journey-image">
-            <Image src="/images/studio-room.png" alt="Quiet studio prepared before a first session" fill sizes="(max-width: 900px) 100vw, 50vw" priority />
+            <Image
+              src="/images/studio-room.webp"
+              alt="Quiet studio prepared before a first session"
+              fill
+              sizes="(max-width: 900px) 100vw, 50vw"
+              priority
+            />
           </div>
           <h2 className="section-title">Before you move.</h2>
           <p>
-            Bring water and comfortable clothing. Grip socks may be required;
-            the studio must confirm this policy. Late entry may not be
-            permitted.
+            Bring water, comfortable clothing, and grip socks for the
+            illustrative equipment policy. The demonstration allows entry up
+            to five minutes after start only when it is safe to do so.
           </p>
           <p className="placeholder">
             This guidance is practical information, not medical advice. Seek

@@ -1,4 +1,71 @@
 "use client";
-import Link from "next/link";import {Menu,X} from "lucide-react";import {useEffect,useRef,useState} from "react";
-const links=[["Method","/method"],["Classes","/classes"],["Schedule","/schedule"],["Instructors","/instructors"],["Memberships","/memberships"],["First Session","/first-session"]];
-export function MobileNav(){const [open,setOpen]=useState(false);const trigger=useRef<HTMLButtonElement>(null);const close=useRef<HTMLButtonElement>(null);useEffect(()=>{if(!open)return;const triggerNode=trigger.current;const previous=document.body.style.overflow;document.body.style.overflow="hidden";close.current?.focus();const key=(e:KeyboardEvent)=>{if(e.key==="Escape")setOpen(false)};document.addEventListener("keydown",key);return()=>{document.body.style.overflow=previous;document.removeEventListener("keydown",key);triggerNode?.focus()}},[open]);return <><button ref={trigger} className="menu-button" aria-expanded={open} aria-controls="mobile-menu" onClick={()=>setOpen(true)}><Menu/><span className="sr-only">Open menu</span></button>{open&&<nav id="mobile-menu" className="mobile-nav" aria-label="Mobile navigation"><button ref={close} className="menu-button close" onClick={()=>setOpen(false)}><X/><span className="sr-only">Close menu</span></button>{links.map(([n,h])=><Link key={h} href={h} onClick={()=>setOpen(false)}>{n}</Link>)}<Link className="btn" href="/book" onClick={()=>setOpen(false)}>Book a session</Link></nav>}</>}
+import Link from "next/link";
+import { Menu, X } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
+const links = [
+  ["Method", "/method"],
+  ["Classes", "/classes"],
+  ["Schedule", "/schedule"],
+  ["Instructors", "/instructors"],
+  ["Memberships", "/memberships"],
+  ["First Session", "/first-session"],
+];
+export function MobileNav() {
+  const [open, setOpen] = useState(false);
+  const trigger = useRef<HTMLButtonElement>(null);
+  const close = useRef<HTMLButtonElement>(null);
+  useEffect(() => {
+    if (!open) return;
+    const triggerNode = trigger.current;
+    const previous = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    close.current?.focus();
+    const key = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setOpen(false);
+    };
+    document.addEventListener("keydown", key);
+    return () => {
+      document.body.style.overflow = previous;
+      document.removeEventListener("keydown", key);
+      triggerNode?.focus();
+    };
+  }, [open]);
+  return (
+    <>
+      <button
+        ref={trigger}
+        className="menu-button"
+        aria-expanded={open}
+        aria-controls="mobile-menu"
+        onClick={() => setOpen(true)}
+      >
+        <Menu />
+        <span className="sr-only">Open menu</span>
+      </button>
+      {open && (
+        <nav
+          id="mobile-menu"
+          className="mobile-nav"
+          aria-label="Mobile navigation"
+        >
+          <button
+            ref={close}
+            className="menu-button close"
+            onClick={() => setOpen(false)}
+          >
+            <X />
+            <span className="sr-only">Close menu</span>
+          </button>
+          {links.map(([n, h]) => (
+            <Link key={h} href={h} onClick={() => setOpen(false)}>
+              {n}
+            </Link>
+          ))}
+          <Link className="btn" href="/book" onClick={() => setOpen(false)}>
+            Book a session
+          </Link>
+        </nav>
+      )}
+    </>
+  );
+}

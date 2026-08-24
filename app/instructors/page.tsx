@@ -5,8 +5,7 @@ import { instructors } from "@/content/data";
 import { PageHeader } from "@/components/ui/PageHeader";
 export const metadata: Metadata = {
   title: "Instructors",
-  description:
-    "Meet the FORME instructor team; all current biographies are placeholders.",
+  description: "Meet two explicitly fictional FORME concept instructor profiles.",
 };
 export default function Page() {
   return (
@@ -14,14 +13,21 @@ export default function Page() {
       <PageHeader
         eyebrow="The team"
         title="Cueing with clarity."
-        intro="Instructor names, biographies, specialties, and credentials are clearly marked placeholders pending verification."
+        intro="Two clearly fictional profiles demonstrate teaching approach and class relationships without invented credentials."
       />
       <section className="section container index-grid">
         {instructors.map((i, n) => (
           <article className="class-card instructor-card" key={i.id}>
             <div className="card-media instructor-media">
-              <Image src="/images/instructor-editorial.png" alt="Editorial placeholder portrait; final instructor photography pending" fill sizes="(max-width: 900px) 100vw, 50vw" />
-              <span className="media-caption technical">Portrait placeholder</span>
+              <Image
+                src={i.portrait}
+                alt={`Fictional FORME instructor profile for ${i.name}`}
+                fill
+                sizes="(max-width: 900px) 100vw, 50vw"
+              />
+              <span className="media-caption technical">
+                Fictional profile · concept visualization
+              </span>
             </div>
             <div>
               <span className="technical">

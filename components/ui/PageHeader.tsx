@@ -1,1 +1,21 @@
-import {Breadcrumbs} from "./Breadcrumbs";export function PageHeader({eyebrow,title,intro}:{eyebrow:string;title:string;intro:string}){return <header className="page-head"><div className="container"><Breadcrumbs items={[{label:title}]}/><p className="eyebrow">{eyebrow}</p><h1 className="title">{title}</h1><p style={{maxWidth:650}}>{intro}</p></div></header>}
+import { Breadcrumbs } from "./Breadcrumbs";
+export function PageHeader({
+  eyebrow,
+  title,
+  intro,
+}: {
+  eyebrow: string;
+  title: string;
+  intro: string;
+}) {
+  return (
+    <header className="page-head">
+      <div className="container">
+        <Breadcrumbs items={[{ label: title }]} />
+        <p className="eyebrow">{eyebrow}</p>
+        <h1 className="title">{title}</h1>
+        <p style={{ maxWidth: 650 }}>{intro}</p>
+      </div>
+    </header>
+  );
+}

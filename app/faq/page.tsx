@@ -1,1 +1,40 @@
-import type {Metadata} from "next";import {faqs} from "@/content/data";import {PageHeader} from "@/components/ui/PageHeader";export const metadata:Metadata={title:"FAQ",description:"Answers about first sessions, classes, preparation, and studio policies."};export default function Page(){const schema={"@context":"https://schema.org","@type":"FAQPage",mainEntity:faqs.map(f=>({"@type":"Question",name:f.q,acceptedAnswer:{"@type":"Answer",text:f.a}}))};return <><PageHeader eyebrow="Useful detail" title="Questions, answered directly." intro="Where information is unknown, we say so."/><section className="section narrow faq">{faqs.map(f=><details key={f.q}><summary>{f.q}</summary><p>{f.a}</p></details>)}</section><script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify(schema)}}/></>}
+import type { Metadata } from "next";
+import { faqs } from "@/content/data";
+import { PageHeader } from "@/components/ui/PageHeader";
+export const metadata: Metadata = {
+  title: "FAQ",
+  description:
+    "Answers about first sessions, classes, preparation, and studio policies.",
+};
+export default function Page() {
+  const schema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqs.map((f) => ({
+      "@type": "Question",
+      name: f.q,
+      acceptedAnswer: { "@type": "Answer", text: f.a },
+    })),
+  };
+  return (
+    <>
+      <PageHeader
+        eyebrow="Useful detail"
+        title="Questions, answered directly."
+        intro="Where information is unknown, we say so."
+      />
+      <section className="section narrow faq">
+        {faqs.map((f) => (
+          <details key={f.q}>
+            <summary>{f.q}</summary>
+            <p>{f.a}</p>
+          </details>
+        ))}
+      </section>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+      />
+    </>
+  );
+}
