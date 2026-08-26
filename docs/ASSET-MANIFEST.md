@@ -4,7 +4,7 @@ The five source PNGs in `docs/asset-sources/` were generated for the original FO
 
 Production derivatives in `public/images/`:
 
-- `hero-forme.avif` / `.webp` — 1536 × 1024 landscape hero.
+- `hero-forme.avif` / `.webp` — 1536 × 1024 landscape hero and Open Graph/Twitter share preview.
 - `hero-forme-mobile.avif` / `.webp` — art-directed 960 × 1200 portrait crop.
 - `class-group.avif` / `.webp` — fictional group practice.
 - `instructor-editorial.avif` / `.webp` — fictional profile study.

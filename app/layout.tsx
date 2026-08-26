@@ -4,18 +4,24 @@ import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { CookieConsent } from "@/components/consent/CookieConsent";
 import { studio } from "@/config/studio";
+const shareImage = `${studio.siteUrl}/images/hero-forme.webp`;
 
 export const metadata: Metadata = {
   metadataBase: new URL(studio.siteUrl),
   title: { default: studio.name, template: `%s | ${studio.shortName}` },
   description: studio.description,
   alternates: { canonical: "/" },
+  icons: { icon: [{ url: `${studio.siteUrl}/forme-icon.svg`, type: "image/svg+xml" }] },
   openGraph: {
     title: studio.name,
     description: studio.description,
+    url: studio.siteUrl,
+    siteName: studio.name,
     type: "website",
     locale: "en_LB",
+    images: [{ url: shareImage, width: 1536, height: 1024, alt: "FORME fictional movement studio in warm Beirut light" }],
   },
+  twitter: { card: "summary_large_image", title: studio.name, description: studio.description, images: [shareImage] },
 };
 
 export default function RootLayout({
